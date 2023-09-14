@@ -9,7 +9,7 @@ app.use(cors())
 
 app.get("/summary/:id", async (request, response) => {
   await download(request.params.id)
-  const resuult = transcribe()
+  const result = await transcribe()
 
   response.json({ result })
 })
