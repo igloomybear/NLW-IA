@@ -10,7 +10,7 @@ export const download = (videoId) => {
       const seconds = info.formats[0].approxDurationMs / 1000
 
       if (seconds > 60) {
-        throw new Error("A duração desse vídeo é mais que 60 segundos.")
+        throw new Error("A duração desse vídeo é mais do que 60 segundos.")
       }
     })
     .on("end", () => {
@@ -21,5 +21,5 @@ export const download = (videoId) => {
         "Não foi possível fazer o download do vídeo. Detalhes do erro:",
         error
       )
-    })
+    }).pipe(fs.createWriteStream("./tmp/audio.mp4"))
 }
