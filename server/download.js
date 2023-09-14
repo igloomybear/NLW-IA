@@ -16,4 +16,11 @@ export const download = (videoId) => {
     .on("end", () => {
       console.log("Download do vídeo dinalizado.")
     })
+    .on("error"),
+    () => {
+      console.log(
+        "não foi possível fazer o download do vídeo. Detalhes do erro:",
+        erro
+      )
+    }
 }
