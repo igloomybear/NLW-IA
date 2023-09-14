@@ -12,5 +12,7 @@ form.addEventListener("submit", (event) => {
   }
 
   const [_, params] = videoURL.split("/shorts/")
-  console.log(params)
+  const [videoID] = params.split("?si")
+
+  content.textContent = "Obtendo o texto do áudio..."
 })
