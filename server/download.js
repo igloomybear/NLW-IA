@@ -9,7 +9,10 @@ export const download = (videoId) => {
     "info",
     (info) => {
       const seconds = info.formats[0].approxDurationMs / 1000
-      console.log(seconds)
+
+      if (seconds > 60) {
+        throw new Error("A duração desse vídeo é mais que 60 segundos.")
+      }
     }
   )
 }
